@@ -63,6 +63,7 @@ void escogerEjercicio(int opcion){
 
     case 0:
         cout<<"Ciao Ciao"<<endl;
+        break;
     default:
         cout<<"No está en el rango elegible"<<endl;
         break;
