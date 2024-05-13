@@ -5,7 +5,7 @@ Versión: 1.0
 Lógica y Algoritmos
 
 Problema 6: Implemente una solución para conocer la fecha calendario transcurridos N días a partir de
-una fecha dada en formato dd/m
+una fecha dada en formato dd/mm//aa
 
 
 */
@@ -44,14 +44,15 @@ int calcularDias(Fecha fechaInicial, Fecha fechaFinal){
     int dias = 0, diasEnAnios = 0, diasResidualFinal = 0, diasResidualInicial = 0;
     int meses[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    if(fechaInicial.mes == 2 && fechaInicial.dia == 29){
-        dias = fechaFinal.dia + ((meses[fechaInicial.mes - 1] - fechaInicial.dia) - 1);
+    if((fechaInicial.mes == 2 && fechaInicial.dia== 29) && (fechaFinal.mes == 2 && fechaFinal.dia == 29)){
+        dias = (fechaFinal.dia - 1) + ((meses[fechaInicial.mes - 1] - fechaInicial.dia) + 1);
+    }else if(fechaInicial.mes == 2 && fechaInicial.dia == 29){
+        dias = fechaFinal.dia + ((meses[fechaInicial.mes - 1] - fechaInicial.dia) + 1);
     }else if(fechaFinal.mes == 2 && fechaFinal.dia ==29){
-        dias = (fechaFinal.dia - 1) + (meses[fechaInicial.mes - 1] - fechaInicial.dia);
+        dias = (fechaFinal.dia - 1) + ((meses[fechaInicial.mes - 1] - fechaInicial.dia) + 1);
     }else{
-        dias = fechaFinal.dia + (meses[fechaInicial.mes - 1] - fechaInicial.dia);
+        dias = fechaFinal.dia + ((meses[fechaInicial.mes - 1] - fechaInicial.dia) + 1);
     }
-
 
     diasEnAnios = (fechaFinal.anio - (fechaInicial.anio + 1)) * 365;
 
